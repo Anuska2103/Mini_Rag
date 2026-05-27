@@ -76,7 +76,7 @@ def keyword_search(text, query):
         if not q:
             return []
 
-        # choose pattern: whole-word for single token, phrase for multi-token
+        
         if " " in q:
             pattern = re.compile(re.escape(q), re.IGNORECASE)
         else:
@@ -113,30 +113,25 @@ def highlight_text(text, query):
 #sematic search
 def semantic_search(text, query):
 
-    # Split paragraphs
+    
     paragraphs = split_into_paragraphs(text)
 
-    # Combine query + paragraphs
+    
     all_text = [query] + paragraphs
 
-    # Convert text into vectors
     vectorizer = TfidfVectorizer()
 
-    vectors = vectorizer.fit_transform(all_text)
-
-    # Query vector
+    vectors = vectorizer.fit_transform(all_text)    
     query_vector = vectors[0]
-
-    # Paragraph vectors
     paragraph_vectors = vectors[1:]
 
-    # Compute similarity
+    
     similarities = cosine_similarity(
         query_vector,
         paragraph_vectors
     )[0]
 
-    # Store matched paragraphs with scores
+    
     results = []
 
     for i, score in enumerate(similarities):

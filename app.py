@@ -23,7 +23,7 @@ text = read_text_file(upload_file)
 cleaned_text = basic_clean_text(text)
 
 st.subheader("Text preview")
-st.text_area('Preview', cleaned_text[:2000], height=250, disabled=True)
+st.text_area('Preview', cleaned_text[:1000], height=250, disabled=True)
 
 #extracting the summary 0
 stats = count_text_stats(cleaned_text)
@@ -135,9 +135,7 @@ elif st.session_state.query != "":
     st.warning("No matching paragraph found.")
 
 
-# ----------------------
-# Ask a Question (semantic)
-# ----------------------
+
 st.markdown("---")
 st.subheader("Ask a question about this document")
 question = st.text_input("Enter a question")
