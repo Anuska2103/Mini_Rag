@@ -46,14 +46,10 @@ This tool is ideal for researchers, students, and professionals who need to quic
 
 ## Tools & Libraries Used
 
-| Tool/Library | Version | Purpose |
-|---|---|---|
-| **Streamlit** | 1.57.0 | Web app framework for interactive UI |
-| **NumPy** | 2.4.6 | Numerical computing |
-| **Pandas** | 3.0.3 | Data manipulation (optional enhancement) |
-| **Scikit-learn** | 1.8.0 | TF-IDF vectorizer & cosine similarity |
-
-| **Charset Normalizer** | 3.4.7 | Text encoding handling |
+| Tool/Library | Version (from requirements.txt) | Purpose |
+|---|---:|---|
+| **Streamlit** | 1.57.0 | Web app framework for interactive UI (used by `app.py`) |
+| **Scikit-learn** | 1.8.0 | TF-IDF vectorizer & cosine similarity (used by `src/txt_processing.py`) |
 
 ---
 
