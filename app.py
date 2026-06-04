@@ -1,5 +1,11 @@
+from pathlib import Path
+
 import streamlit as st
-from src.txt_processing import read_text_file,basic_clean_text, keyword_search,count_text_stats, split_into_paragraphs, highlight_text, semantic_search
+
+from src.chunking import build_chunks_from_file, export_chunks_json
+from src.document_loader import load_document_text
+from src.text_cleaning import clean_document_records
+from src.txt_processing import basic_clean_text, keyword_search, count_text_stats, split_into_paragraphs, highlight_text, semantic_search
 st.title("Mini rag char with Document")
 
 st.write("""Upload a .txt document and search for keywords or sentences inside the file.
@@ -11,15 +17,23 @@ st.write("""Upload a .txt document and search for keywords or sentences inside t
 
 #file upload
 
-upload_file = st.file_uploader("Upload TXT File", type=["txt"])
+upload_file = st.file_uploader("Upload TXT/PDF File", type=["txt", "pdf"])
 if upload_file is None:
     st.warning("File not uploaded please upload a txt file")
     st.stop()
 
-#read file 
-text = read_text_file(upload_file)
+uploaded_bytes = upload_file.getvalue()
+upload_dir = Path("outputs") / "uploads"
+upload_dir.mkdir(parents=True, exist_ok=True)
+upload_path = upload_dir / upload_file.name
+upload_path.write_bytes(uploaded_bytes)
 
-# Clean text 
+#read file
+records = load_document_text(upload_path)
+cleaned_records = clean_document_records(records)
+text = "\n\n".join(record.get("text", "") for record in cleaned_records)
+
+# Clean text
 cleaned_text = basic_clean_text(text)
 
 st.subheader("Text preview")
@@ -35,6 +49,7 @@ word_count = stats["words"]
 characters = stats["characters"]
 sentences = stats["sentences"]
 paragraph_count = len(paragraphs)
+page_count = max(1, sum(1 for record in cleaned_records if record.get("page_number") is not None))
 
 col1, col2, col3, col4 = st.columns(4)
 with col1:
@@ -162,3 +177,59 @@ if st.button("Ask Question"):
 
             highlighted = highlight_text(ans_para, question)
             st.markdown(highlighted, unsafe_allow_html=True)
+
+
+st.markdown("---")
+st.subheader("Chunking preview")
+
+chunk_size = st.number_input("Chunk size (characters)", min_value=200, max_value=1200, value=1000, step=100)
+overlap = st.number_input("Overlap (characters)", min_value=100, max_value=200, value=200, step=10)
+
+if "chunks" not in st.session_state:
+    st.session_state.chunks = []
+
+if "chunk_source" not in st.session_state:
+    st.session_state.chunk_source = ""
+
+if "chunk_config" not in st.session_state:
+    st.session_state.chunk_config = {}
+
+current_config = {
+    "source": upload_file.name,
+    "chunk_size": int(chunk_size),
+    "overlap": int(overlap),
+}
+
+if st.session_state.chunk_config != current_config:
+    chunks = build_chunks_from_file(str(upload_path), chunk_size, overlap)
+    export_chunks_json(chunks, "outputs/chunks_preview.json")
+    st.session_state.chunks = chunks
+    st.session_state.chunk_source = upload_file.name
+    st.session_state.chunk_config = current_config
+
+if st.session_state.chunks:
+    info_col1, info_col2, info_col3, info_col4, info_col5 = st.columns(5)
+    with info_col1:
+        st.metric("File", st.session_state.chunk_source)
+    with info_col2:
+        st.metric("Type", upload_path.suffix.lstrip(".") or "txt")
+    with info_col3:
+        st.metric("Characters", len(cleaned_text))
+    with info_col4:
+        st.metric("Pages", page_count)
+    with info_col5:
+        st.metric("Chunks", len(st.session_state.chunks))
+
+    st.caption("First 5 chunks")
+    for idx, chunk in enumerate(st.session_state.chunks[:5], start=1):
+        with st.expander(f"Chunk {idx} ({chunk.get('char_count', 0)} chars)"):
+            st.write(chunk.get("text", ""))
+
+    preview_path = Path("outputs") / "chunks_preview.json"
+    if preview_path.exists():
+        st.download_button(
+            "Download chunks_preview.json",
+            data=preview_path.read_bytes(),
+            file_name="chunks_preview.json",
+            mime="application/json",
+        )

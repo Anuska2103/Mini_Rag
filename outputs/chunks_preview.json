@@ -1,0 +1,461 @@
+[
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 1,
+        "chunk_id": "sem620.pdf_1_1",
+        "chunk_no": 1,
+        "char_count": 1000,
+        "text": "1\nMaulana Abul Kalam Azad University of Technology, West Bengal(Formerly West Bengal University of Technology)Syllabus for B. Tech in CSE (Artificial Intelligence and Machine Learning)(Applicable from the academic session 2020-2021)SEMESTER – VIApplication of machine learning in industriesCode: PCC- AIML601Contacts: 2LName of the Course:Application of machine learning in industriesCourse Code:PCC- AIML601Semester: VIDuration:6monthsMaximumMarks:100Teaching Scheme Examination SchemeTheory:2hrs./weekMidSemesterexam:15Tutorial:NILAssignmentandQuiz:10marksAttendance:5marksPractical:NILEndSemesterExam:70MarksCreditPoints:2Introduction to linear regression (and multivariate linear regression)Logistic Regression and regularizationPractical aspects of implementationDecision trees and pruning, implementation of decision treesSupport vector machines and making them work in practiceBoosting - implementing different boosting methods with decision trees.Using the algorithms for several tasks"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 1,
+        "chunk_id": "sem620.pdf_1_2",
+        "chunk_no": 2,
+        "char_count": 492,
+        "text": "implementation of decision treesSupport vector machines and making them work in practiceBoosting - implementing different boosting methods with decision trees.Using the algorithms for several tasks - how to set up the problem, debug, selectfeatures and develop the learning algorithm.Unsupervised learning - k-means, PCA, hierarchical clustering.Implementing the clustering algorithmsParallelizing the learning algorithmsApplicationsChoosing from multiple algorithms - What will work?"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 2,
+        "chunk_id": "sem620.pdf_2_1",
+        "chunk_no": 1,
+        "char_count": 1000,
+        "text": "2\nMaulana Abul Kalam Azad University of Technology, West Bengal(Formerly West Bengal University of Technology)Syllabus for B. Tech in CSE (Artificial Intelligence and Machine Learning)(Applicable from the academic session 2020-2021)Application of machine learning in industriesLabCode:PCC- AIML 691Contacts: 4PName of the Course:ApplicationofmachinelearninginindustriesLabCourse Code: PCC- AIML 691Semester: VIDuration:6monthsMaximumMarks:100TeachingScheme:Theory:hrs./weekContinuousInternalAssessmentTutorial:NILExternalAssesement:60Practical: 4 hrs./week Distribution of marks:40CreditPoints:21. Explore visualization features of the tool for analysis and WEKA.2. Perform data preprocessing tasks and Demonstrate performing association rule mining on data sets3. Demonstrate performing classification on data sets4. Demonstrate performing clustering on data sets5. Sample Programs using German Credit Data6. One approach for solving the problem encountered in the previous question is using cross-v"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 2,
+        "chunk_id": "sem620.pdf_2_2",
+        "chunk_no": 2,
+        "char_count": 1000,
+        "text": "on on data sets4. Demonstrate performing clustering on data sets5. Sample Programs using German Credit Data6. One approach for solving the problem encountered in the previous question is using cross-validation? Describewhat is cross validation briefly. Train a decision tree again using cross validation and report your results. Doesaccuracy increase/decrease? Why?7. Check to see if the data shows a bias against “foreign workers” or “personal-status”.. Did removing these attributeshave any significantly effect? Discuss8. Another question might be, do you really need to input so many attributes to get good results? Try out somecombinations.9. Train your decision tree and report the Decision Tree and cross validation results. Are they significantly differentfrom results obtained in problem 610. How does the complexity of a Decision Tree relate to the bias of the model?11. One approach is to use Reduced Error Pruning. Explain this idea briefly. Try reduced error pruning for trainingyour Dec"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 2,
+        "chunk_id": "sem620.pdf_2_3",
+        "chunk_no": 3,
+        "char_count": 602,
+        "text": ". How does the complexity of a Decision Tree relate to the bias of the model?11. One approach is to use Reduced Error Pruning. Explain this idea briefly. Try reduced error pruning for trainingyour Decision Trees using cross validation and report the Decision Trees you obtain? Also Report your accuracyusing the pruned model Does your Accuracy increase?12.How Can you Convert Decision Tree in to “If then else Rules”.Make Up your own Small Decision Tree consisting2-3 levels and convert into a set of rules. Report the rule obtained by training a one R classifier. Rank the performanceof j48,PART,oneR."
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 3,
+        "chunk_id": "sem620.pdf_3_1",
+        "chunk_no": 1,
+        "char_count": 1000,
+        "text": "3\nMaulana Abul Kalam Azad University of Technology, West Bengal(Formerly West Bengal University of Technology)Syllabus for B. Tech in CSE (Artificial Intelligence and Machine Learning)(Applicable from the academic session 2020-2021)Subject:Deep LearningCourse Code: PCCAIML 602 Semester: VIDuration: 36 Hrs. Maximum Marks: 100Teaching Scheme Examination SchemeTheory: 3 hrs./weekEnd Semester Exam: 70Tutorial: 0Attendance : 5Practical:Continuous Assessment:25Credit: 3Aim:Sl. No.1.To improve the performance of a Deep Learning model2.to the reduce the optimization function which could be divided based on the classificationandthe regression problemsObjective:Sl. No.1.To acquire knowledge on the basics of neural networks.2.To implement neural networks using computational tools for variety of problems.3.To explore various deep learning algorithms.Pre-Requisite:Sl. No.1.Calculus, Linear Algebra2.Probability & Statistics3.Ability to code in R/PythonContents Hrs./weekChapter Name of the Topic Hour"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 3,
+        "chunk_id": "sem620.pdf_3_2",
+        "chunk_no": 2,
+        "char_count": 207,
+        "text": "ems.3.To explore various deep learning algorithms.Pre-Requisite:Sl. No.1.Calculus, Linear Algebra2.Probability & Statistics3.Ability to code in R/PythonContents Hrs./weekChapter Name of the Topic Hours Marks"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 4,
+        "chunk_id": "sem620.pdf_4_1",
+        "chunk_no": 1,
+        "char_count": 1000,
+        "text": "4\nMaulana Abul Kalam Azad University of Technology, West Bengal(Formerly West Bengal University of Technology)Syllabus for B. Tech in CSE (Artificial Intelligence and Machine Learning)(Applicable from the academic session 2020-2021)01IntroductionVarious paradigms of earning problems, Perspectives and Issues indeep learning framework, review of fundamental learningtechniques.3 502Feed forward neural networkArtificial Neural Network, activation function, multi-layer neuralnetwork, cardinality, operations, and properties of fuzzy relations.6 1003Training Neural NetworkRisk minimization, loss function, backpropagation, regularization,model selection, and optimization.6 1504Conditional Random FieldsLinear chain, partition function, Markov network, Beliefpropagation, Training CRFs, Hidden Markov Model, Entropy.9 1505Deep LearningDeep Feed Forward network, regularizations, training deepmodels, dropouts, Convolutional Neural Network, RecurrentNeural Network, Deep Belief Network.6 1506Deep Lear"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 4,
+        "chunk_id": "sem620.pdf_4_2",
+        "chunk_no": 2,
+        "char_count": 710,
+        "text": "Model, Entropy.9 1505Deep LearningDeep Feed Forward network, regularizations, training deepmodels, dropouts, Convolutional Neural Network, RecurrentNeural Network, Deep Belief Network.6 1506Deep Learning researchObject recognition, sparse coding, computer vision, naturallanguage6 10Sub Total: 36 70Internal Assessment Examination & Preparation of SemesterExamination4 30Total: 40 100List of BooksText Books:Name of Author Title of the Book Edition/ISSN/ISBN Name of the PublisherRajiv Chopra Dep Learning(AICTE RecommendedTextbook)First Edition Khanna BookPublishingGoodfellow,I.,Bengio,Y.,andCourvilleA.,Deep Learning MIT PressSatish Kumar Neural Networks: AClassroom ApproachTata McGraw-HillReference Books:"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 5,
+        "chunk_id": "sem620.pdf_5_1",
+        "chunk_no": 1,
+        "char_count": 1000,
+        "text": "5\nMaulana Abul Kalam Azad University of Technology, West Bengal(Formerly West Bengal University of Technology)Syllabus for B. Tech in CSE (Artificial Intelligence and Machine Learning)(Applicable from the academic session 2020-2021)Bishop, C. ,M. Pattern Recognition andMachine LearningSpringerYegnanarayana, B. ArtificialNeuralNetworksPHI Learning Pvt. LtdGolub, G.,H., andVanLoan,C.,F.Matrix Computations JHU PressSoft ComputingCode:PCCAIML603 & PCCAIML693Contacts: 3L + 4PName of the Course:Soft ComputingCourseCode:PCCAIML603 &PCCAIML693Semester:VIDuration:6monthsMaximumMarks:100Teaching Scheme Examination SchemeTheory:3hrs./weekMidSemesterexam:15Tutorial:NILAssignmentandQuiz:10marksAttendance:5marksPractical:4hrs./weekEndSemesterExam:70MarksPracticalSessionalinternalcontinuousevaluation:40PracticalSessionalexternalexamination:60Credit Points: 3 + 2UnitContentHrs/UnitMarks/Unit1Introduction: Introduction to soft computing;introduction to fuzzy sets and fuzzy logic systems;introduction to"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 5,
+        "chunk_id": "sem620.pdf_5_2",
+        "chunk_no": 2,
+        "char_count": 276,
+        "text": "racticalSessionalexternalexamination:60Credit Points: 3 + 2UnitContentHrs/UnitMarks/Unit1Introduction: Introduction to soft computing;introduction to fuzzy sets and fuzzy logic systems;introduction to biological and artificial neuralnetwork; introduction to Genetic Algorithm8"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 6,
+        "chunk_id": "sem620.pdf_6_1",
+        "chunk_no": 1,
+        "char_count": 1000,
+        "text": "6\nMaulana Abul Kalam Azad University of Technology, West Bengal(Formerly West Bengal University of Technology)Syllabus for B. Tech in CSE (Artificial Intelligence and Machine Learning)(Applicable from the academic session 2020-2021)2Fuzzy sets and Fuzzy logic systems:Classical Sets and Fuzzy Sets and Fuzzy relations :Operations on Classical sets, properties of classicalsets, Fuzzy set operations, properties of fuzzy sets,cardinality, operations, and properties of fuzzyrelations.Membership functions : Features of membershipfunctions, standard forms and boundaries, differentfuzzification methods.Fuzzy to Crisp conversions: Lambda Cuts for fuzzysets, fuzzy Relations, Defuzzification methods.Classical Logic and Fuzzy Logic: Classical predicatelogic, Fuzzy Logic, Approximate reasoning and FuzzyImplication Fuzzy Rule based Systems: LinguisticHedges, Fuzzy Rule based system – Aggregation offuzzy Rules, Fuzzy Inference System- Mamdani FuzzyModels – Sugeno Fuzzy Models.Applications of Fuzzy Log"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 6,
+        "chunk_id": "sem620.pdf_6_2",
+        "chunk_no": 2,
+        "char_count": 1000,
+        "text": "Implication Fuzzy Rule based Systems: LinguisticHedges, Fuzzy Rule based system – Aggregation offuzzy Rules, Fuzzy Inference System- Mamdani FuzzyModels – Sugeno Fuzzy Models.Applications of Fuzzy Logic: How Fuzzy Logic isapplied in Home Appliances, General Fuzzy Logiccontrollers, Basic Medical Diagnostic systems andWeather forecasting\n10\n3Neural NetworkIntroduction to Neural Networks: Advent of ModernNeuroscience, Classical AI and Neural Networks,Biological Neurons and Artificial neural network; modelof artificial neuron.Learning Methods : Hebbian, competitive, Boltzman etc.,Neural Network models: Perceptron, Adaline andMadalinenetworks; single layer network; Back- propagation andmulti layer networks.Competitive learning networks: Kohonen selforganizing networks, Hebbian learning; HopfieldNetworks. Neuo-Fuzzy modelling:Applications ofNeural Networks: Pattern Recognition andclassification104.Genetic Algorithms: Simple GA, crossover and mutation,Multi-objective Genetic Algorithm (MOGA)."
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 6,
+        "chunk_id": "sem620.pdf_6_3",
+        "chunk_no": 3,
+        "char_count": 486,
+        "text": "dNetworks. Neuo-Fuzzy modelling:Applications ofNeural Networks: Pattern Recognition andclassification104.Genetic Algorithms: Simple GA, crossover and mutation,Multi-objective Genetic Algorithm (MOGA).Applications of Genetic Algorithm: geneticalgorithms insearch and optimization, GA basedclustering Algorithm, Image processing and patternRecognition105PSO:Other Soft Computing techniques:Simulated Annealing, Tabu search, Antcolony optimization (ACO), Particle SwarmOptimization (PSO).4"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 7,
+        "chunk_id": "sem620.pdf_7_1",
+        "chunk_no": 1,
+        "char_count": 999,
+        "text": "7\nMaulana Abul Kalam Azad University of Technology, West Bengal(Formerly West Bengal University of Technology)Syllabus for B. Tech in CSE (Artificial Intelligence and Machine Learning)(Applicable from the academic session 2020-2021)Practical:Skills to be developed:1.Able to apply Soft Computing techniques to solve a number of real life problems.Assignments: :Assignment from theoryList of BooksText Books:Name of AuthorTitle of the Book Edition/ISSN/ISBN Name of the PublisherTimothy J. Ross,JohnWiley and SonsFuzzy logic withengineering applicationsS. RajasekaranandG.A.V.PaiNeural Networks, FuzzyLogic and GeneticAlgorithmsPHIS N Sivanandam,S.Sumathi, JohnPrinciples of SoftComputingReference Books:George J. Klir andBoYuanFuzzy Sets and FuzzyLogic: Theory andApplicationsPrentice HallSimon HaykinNeural Networks: AComprehensiveFoundationPrentice Hall.End Semester Examination Scheme. Maximum Marks-70. Time allotted-3hrs.Group Unit Objective Questions(MCQ only with thecorrect answer)Subjective"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 7,
+        "chunk_id": "sem620.pdf_7_2",
+        "chunk_no": 2,
+        "char_count": 611,
+        "text": "nNeural Networks: AComprehensiveFoundationPrentice Hall.End Semester Examination Scheme. Maximum Marks-70. Time allotted-3hrs.Group Unit Objective Questions(MCQ only with thecorrect answer)Subjective QuestionsNo ofquestion tobe setTotalMarksNo ofquestion tobe setTo answerMarks perquestionTotalMarksABcALLAllAll10105533154570●Only multiple choice type question (MCQ) with one correct answer are to be set in the objectivepart.●Specific instruction to the students to maintain the order in answering objective questions should begiven on top of the question paper.Examination Scheme for end semester examination:"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 8,
+        "chunk_id": "sem620.pdf_8_1",
+        "chunk_no": 1,
+        "char_count": 1000,
+        "text": "8\nMaulana Abul Kalam Azad University of Technology, West Bengal(Formerly West Bengal University of Technology)Syllabus for B. Tech in CSE (Artificial Intelligence and Machine Learning)(Applicable from the academic session 2020-2021)Group Chapter Marks of eachquestionQuestion to besetQuestion to beansweredA ALL 1 10 10B ALL 5 5 3C ALL 15 5 3ExaminationSchemeforPracticalSessionalexamination:PracticalInternalSessionalContinuousEvaluationInternalExamination:Continuousevaluation40ExternalExamination:Examiner-SignedLabAssignments10OnSpotExperiment40Vivavoce1060Name of the Course:Computer NetworksCourse Code: PCC-CS602 Semester: VIDuration:6monthsMaximumMarks:100Teaching Scheme Examination SchemeTheory:3hrs./weekMidSemesterexam:15Tutorial:NILAssignmentandQuiz:10marksAttendance:5marksPractical:hrs./weekEndSemesterExam:70MarksCredit Points: 3Objective:1 To develop an understanding of modern network architectures from a design andperformance perspective.2To introduce the student to the major con"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 8,
+        "chunk_id": "sem620.pdf_8_2",
+        "chunk_no": 2,
+        "char_count": 417,
+        "text": "./weekEndSemesterExam:70MarksCredit Points: 3Objective:1 To develop an understanding of modern network architectures from a design andperformance perspective.2To introduce the student to the major concepts involved in wide-area networks(WANs), local area networks (LANs) and Wireless LANs (WLANs).3To provide an opportunity to do network programming4To provide a WLAN measurement ideas.Unit ContentHrs/Unit Marks/Unit"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 9,
+        "chunk_id": "sem620.pdf_9_1",
+        "chunk_no": 1,
+        "char_count": 1000,
+        "text": "9\nMaulana Abul Kalam Azad University of Technology, West Bengal(Formerly West Bengal University of Technology)Syllabus for B. Tech in CSE (Artificial Intelligence and Machine Learning)(Applicable from the academic session 2020-2021)1Data communication Components:Representation of data and its flowNetworks,Various Connection Topology,Protocols and Standards, OSI model,Transmission Media, LAN: Wired LAN,Wireless LANs, Connecting LAN and VirtualLAN, Techniques for Bandwidth utilization:Multiplexing - Frequency division, Timedivision and Wave division, Concepts onspread spectrum.92Data Link Layer and Medium Access SubLayer: Error Detection and Error Correction -Fundamentals, Block coding, HammingDistance, CRC; Flow Control and Error controlprotocols - Stop and Wait, Go back –N ARQ, Selective Repeat ARQ, SlidingWindow, Piggybacking,Random Access, Multiple access protocols -Pure ALOHA, SlottedALOHA,CSMA/CD,CDMA/CA83Network Layer: Switching, Logical addressing– IPV4, IPV6; Address mapping – A"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 9,
+        "chunk_id": "sem620.pdf_9_2",
+        "chunk_no": 2,
+        "char_count": 999,
+        "text": "epeat ARQ, SlidingWindow, Piggybacking,Random Access, Multiple access protocols -Pure ALOHA, SlottedALOHA,CSMA/CD,CDMA/CA83Network Layer: Switching, Logical addressing– IPV4, IPV6; Address mapping – ARP,RARP, BOOTP and DHCP–Delivery,ForwardingandUnicastRoutingprotocols.144.Transport Layer: Process to ProcessCommunication, User Datagram Protocol(UDP), Transmission Control Protocol (TCP),SCTP Congestion Control; Quality of Service,QoS improving techniques: Leaky Bucket andTokenBucketalgorithm.85Application Layer: Domain Name Space(DNS), DDNS, TELNET,EMAIL, File Transfer Protocol (FTP), WWW,HTTP, SNMP, Bluetooth, Firewalls, Basicconcepts of Cryptography.8Text book and Reference books:1. Introduction to Algorithms\" by Cormen, Leiserson, Rivest, Stein.2. \"The Design and Analysis of Computer Algorithms\" by Aho, Hopcroft, Ullman.3. \"Algorithm Design\" by Kleinberg and Tardos.4. Design & Analysis of Algorithms, Gajendra Sharma, Khanna Publishing House, New DelhiCourse Outcomes:On completion of"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 9,
+        "chunk_id": "sem620.pdf_9_3",
+        "chunk_no": 3,
+        "char_count": 438,
+        "text": "orithms\" by Aho, Hopcroft, Ullman.3. \"Algorithm Design\" by Kleinberg and Tardos.4. Design & Analysis of Algorithms, Gajendra Sharma, Khanna Publishing House, New DelhiCourse Outcomes:On completion of the course students will be able to1. Understand research problem formulation.2. Analyze research related information3. Follow research ethics4. Understand that today’s world is controlled by Computer, Information Technology, but tomorrow"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 10,
+        "chunk_id": "sem620.pdf_10_1",
+        "chunk_no": 1,
+        "char_count": 769,
+        "text": "10\nMaulana Abul Kalam Azad University of Technology, West Bengal(Formerly West Bengal University of Technology)Syllabus for B. Tech in CSE (Artificial Intelligence and Machine Learning)(Applicable from the academic session 2020-2021)world will be ruled by ideas, concept, and creativity.5. Understanding that when IPR would take such important place in growth of individuals & nation,it is needless to emphasis the need of information about Intellectual Property Right to be promotedamong students in general & engineering in particular.6. Understand that IPR protection provides an incentive to inventors for further research work andinvestment in R & D, which leads to creation of new and better products, and in turn brings about,economic growth and social benefits."
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 11,
+        "chunk_id": "sem620.pdf_11_1",
+        "chunk_no": 1,
+        "char_count": 1000,
+        "text": "11\nMaulana Abul Kalam Azad University of Technology, West Bengal(Formerly West Bengal University of Technology)Syllabus for B. Tech in CSE (Artificial Intelligence and Machine Learning)(Applicable from the academic session 2020-2021)\n1)NICInstallation&Configuration(Windows/Linux)2) Understanding IP address, subnet etcFamiliarization withNetworking cables (CAT5, UTP)Connectors (RJ45, T-connector)Hubs, Switches3) TCP/UDP Socket ProgrammingSimple, TCP based, UDP basedMulticast & Broadcast SocketsImplementation of a Prototype Multithreaded Server4) Implementation of Data Link Layer Flow Control Mechanism (Stop & Wait, Sliding Window) Data Link Layer Error Detection Mechanism (Cyclic Redundancy Check) Data Link Layer Error Control Mechanism (Selective Repeat, Go Back N)5) Server Setup/ConfigurationFTP, TelNet, NFS, DNS, Firewall\nComputer Networks LabCode:PCC-CS692Contacts: 4PName of the Course:Computer Networks LabCourse Code:PCC-CS692Semester: VIDuration:6monthsMaximumMarks:100"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 11,
+        "chunk_id": "sem620.pdf_11_2",
+        "chunk_no": 2,
+        "char_count": 483,
+        "text": "up/ConfigurationFTP, TelNet, NFS, DNS, Firewall\nComputer Networks LabCode:PCC-CS692Contacts: 4PName of the Course:Computer Networks LabCourse Code:PCC-CS692Semester: VIDuration:6monthsMaximumMarks:100TeachingScheme:Theory:hrs./weekContinuousInternalAssessmentTutorial:NILExternalAssesement:60Practical: 4 hrs./week Distribution of marks:40CreditPoints:2\nAny experiment specially designed by the college(Detailed instructions for Laboratory Manual to be followed for further guidance)"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 12,
+        "chunk_id": "sem620.pdf_12_1",
+        "chunk_no": 1,
+        "char_count": 1000,
+        "text": "12\nMaulana Abul Kalam Azad University of Technology, West Bengal(Formerly West Bengal University of Technology)Syllabus for B. Tech in CSE (Artificial Intelligence and Machine Learning)(Applicable from the academic session 2020-2021)Big Data AnalyticsCode: PECAIML601AContacts: 3LName of the Course:Big Data AnalyticsCourse Code:PECAIML601ASemester: VIDuration:6monthsMaximumMarks:100Teaching Scheme Examination SchemeTheory:3hrs./weekMidSemesterexam:15Tutorial:NILAssignmentandQuiz:10marksAttendance:5marksPractical:NILEndSemesterExam:70MarksCredit Points: 3LECTURE WITH BREAKUPNO. OFLECTURUnit 1:What is big data, why big data, convergence of key trends, unstructured data,industry examples of big data, web analytics, big data and marketing, fraud andbig data, risk and big data, credit risk management, big data and algorithmictrading, big data and healthcare, big data in medicine, advertising and big data,big data technologies, introduction to Hadoop, open source technologies, cloudand big da"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 12,
+        "chunk_id": "sem620.pdf_12_2",
+        "chunk_no": 2,
+        "char_count": 999,
+        "text": "ement, big data and algorithmictrading, big data and healthcare, big data in medicine, advertising and big data,big data technologies, introduction to Hadoop, open source technologies, cloudand big data, mobile business intelligence, Crowd sourcing analytics, inter andtrans firewall analytics.8Unit 2:Introduction to NoSQL, aggregate data models, aggregates, key-value anddocument data models, relationships, graph databases, schemaless databases,materialized views, distribution models, sharding, master-slave replication, peer-peer replication, sharding and replication, consistency, relaxing consistency,version stamps, map-reduce, partitioning and combining, composing map-reducecalculations.8Unit 3:Data format, analyzing data with Hadoop, scaling out, Hadoop streaming, Hadooppipes, design of Hadoop distributed file system (HDFS), HDFS concepts, Javainterface, data flow, Hadoop I/O, data integrity, compression, serialization, Avro,file-based datastructures9Unit 4:MapReduce workflows, unit"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 12,
+        "chunk_id": "sem620.pdf_12_3",
+        "chunk_no": 3,
+        "char_count": 612,
+        "text": "Hadoop distributed file system (HDFS), HDFS concepts, Javainterface, data flow, Hadoop I/O, data integrity, compression, serialization, Avro,file-based datastructures9Unit 4:MapReduce workflows, unit tests with MRUnit, test data and local tests, anatomyof MapReduce job run, classic Map-reduce, YARN, failures in classic Map-reduceand YARN, job scheduling, shuffle and sort, task execution,MapReduce types, input formats, output formats10Unit 5:7Hbase, data model and implementations, Hbase clients, Hbaseexamples, praxis.Cassandra, Cassandra data model, Cassandra examples,Cassandra clients, Hadoop integration."
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 13,
+        "chunk_id": "sem620.pdf_13_1",
+        "chunk_no": 1,
+        "char_count": 1000,
+        "text": "13\nMaulana Abul Kalam Azad University of Technology, West Bengal(Formerly West Bengal University of Technology)Syllabus for B. Tech in CSE (Artificial Intelligence and Machine Learning)(Applicable from the academic session 2020-2021)Unit6:Pig, Grunt, pig data model, Pig Latin, developing and testing Pig Latin scripts.Hive, data types and file formats, HiveQL data definition, HiveQL datamanipulation, HiveQL queries.6References:1. Michael Minelli, Michelle Chambers, and AmbigaDhiraj, \"Big Data, Big Analytics: Emerging2. V.K. Jain, Big Data and Hadoop, Khanna Publishing House, New Delhi (2017).3. V.K. Jain, Data Analysis, Khanna Publishing House, New Delhi (2019).4. Business Intelligence and Analytic Trends for Today's Businesses\", Wiley, 2013.5. P. J. Sadalage and M. Fowler, \"NoSQL Distilled: A Brief Guide to the EmergingWorld of Polyglot Persistence\", Addison-Wesley Professional, 2012.6. Tom White, \"Hadoop: The Definitive Guide\", Third Edition, O'Reilley, 2012.7. Eric Sammer, \"Hadoop Op"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 13,
+        "chunk_id": "sem620.pdf_13_2",
+        "chunk_no": 2,
+        "char_count": 492,
+        "text": ": A Brief Guide to the EmergingWorld of Polyglot Persistence\", Addison-Wesley Professional, 2012.6. Tom White, \"Hadoop: The Definitive Guide\", Third Edition, O'Reilley, 2012.7. Eric Sammer, \"Hadoop Operations\", O'Reilley, 2012.8. E. Capriolo, D. Wampler, and J. Rutherglen, \"Programming Hive\", O'Reilley, 2012.9. Lars George, \"HBase: The Definitive Guide\", O'Reilley, 2011.10. Eben Hewitt, \"Cassandra: The Definitive Guide\", O'Reilley, 2010.11. Alan Gates, \"Programming Pig\", O'Reilley, 2011."
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 14,
+        "chunk_id": "sem620.pdf_14_1",
+        "chunk_no": 1,
+        "char_count": 1000,
+        "text": "14PG\nMaulana Abul Kalam Azad University of Technology, West Bengal(Formerly West Bengal University of Technology)Syllabus for B. Tech in CSE (Artificial Intelligence and Machine Learning)(Applicable from the academic session 2020-2021)Distributed SystemsCode: PECAIML-601CContact: 3LUnit Content Hrs/Unit Marks/Unit1INTRODUCTIONDistributed data processing; What is a DDBS;Advantages and disadvantages of DDBS; Problemareas; Overview of database and computer networkconceptsDISTRIBUTED DATABASEMANAGEMENT SYSTEM ARCHITECTURETransparencies in a distributed DBMS; DistributedDBMS architecture; Global directory issues82DISTRIBUTED DATABASEDESIGNAlternative design strategies;Distributed design issues;Fragmentation; Data allocationSEMANTICS DATA CONTROLView management; Data security;Semantic Integrity Control QUERYPROCESSING ISSUESObjectives of query processing;Characterization of query processors;Layers of query processing; Querydecomposition; Localization ofdistributeddata113DISTRIBUTEDQUERYOPTIM"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 14,
+        "chunk_id": "sem620.pdf_14_2",
+        "chunk_no": 2,
+        "char_count": 841,
+        "text": "Control QUERYPROCESSING ISSUESObjectives of query processing;Characterization of query processors;Layers of query processing; Querydecomposition; Localization ofdistributeddata113DISTRIBUTEDQUERYOPTIMIZATIONFactors governing query optimization; Centralizedquery optimization; Ordering of fragment queries;Distributed query optimization algorithmsTRANSACTION MANAGEMENTThe transaction concept; Goals of transactionmanagement; Characteristics of transactions;Taxonomy of transaction modelsCONCURRENCY CONTROLConcurrency control in centralized database systems;Concurrency control in DDBSs; Distributedconcurrency control algorithms; Deadlockmanagement114.ReliabilityissuesinDDBSs;Typesoffailures;Reliability techniques; Commit protocols; Recoveryprotocols Algorithm85PARALLELDATABASESYSTEMSParallel architectures; parallel queryprocessing and6"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 14,
+        "chunk_id": "sem620.pdf_14_3",
+        "chunk_no": 3,
+        "char_count": 41,
+        "text": "hitectures; parallel queryprocessing and6"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 15,
+        "chunk_id": "sem620.pdf_15_1",
+        "chunk_no": 1,
+        "char_count": 1000,
+        "text": "15PG\nMaulana Abul Kalam Azad University of Technology, West Bengal(Formerly West Bengal University of Technology)Syllabus for B. Tech in CSE (Artificial Intelligence and Machine Learning)(Applicable from the academic session 2020-2021)6ADVANCED TOPICS MobileDatabases, Distributed ObjectManagement, Multi-databases4Text book and Reference books:1.Principles of Distributed Database Systems, M.T. Ozsu and PValduriez,Prentice-Hall, 1991.2.Distributed Database Systems, D. Bell and J. Grimson, Addison-Wesley, 1992.Data MiningCode:PECAIML-601BContacts: 3LName of the Course:Data Mining and prediction by machinesCourseCodePEC-AIML601BSemester:VIDuration:6monthsMaximumMarks:100Teaching Scheme Examination SchemeTheory:3 hrs./week Mid Semester exam: 15Tutorial:NILAssignmentandQuiz:10marksAttendance:5marksPractical:NILEndSemesterExam:70MarksCreditPoints:3Unit Content Hrs/Unit Marks/UnitUnit1:1 Overiew of data ming and predictive analytics. Wheredoes it apply and where does it not apply. The emerging"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 15,
+        "chunk_id": "sem620.pdf_15_2",
+        "chunk_no": 2,
+        "char_count": 590,
+        "text": "rksPractical:NILEndSemesterExam:70MarksCreditPoints:3Unit Content Hrs/Unit Marks/UnitUnit1:1 Overiew of data ming and predictive analytics. Wheredoes it apply and where does it not apply. The emerginginterdisplinary field of Data Science – what on Earth isit? The potential pitfalls of analytics including big baddata and the problem of local sparsity in large data sets -- big never guarantees sufficient. Brief discussion ofCareer Opportunities including an overview of the UNHMS Analytics program.42Unit2:Data preprocessing and cleanupincluding informative missing valuesand imputation.3"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 16,
+        "chunk_id": "sem620.pdf_16_1",
+        "chunk_no": 1,
+        "char_count": 1000,
+        "text": "16PG\nMaulana Abul Kalam Azad University of Technology, West Bengal(Formerly West Bengal University of Technology)Syllabus for B. Tech in CSE (Artificial Intelligence and Machine Learning)(Applicable from the academic session 2020-2021)3Unit3:Unsupervised learning: Exploring data withvisualization (primarily JMP Pro and Enterprise Guide),Principal Components, Cluster Analysis, VariablesClustering, and Market Basket analysis (associationanalysis). The problem of explanatory (traditional) vspredictive modeling and why it matters.84.Unit4:The under and overfitting dilemma ofpredictive modeling. Includes a discussionof measures of overfitting and underfittingsuch as AICc, BIC, and the very new ERIC.65Unit5:Validation strategies to assess model predictive behaviorand predictive inference26Unit6:Supervised learning for classification: k-nearestneighbors,Decision Trees and Random Forests, Naïve Bayes, NeuralNets,Logistic Regression, Generalized Regression, SupportVectorMachines, Discriminant A"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 16,
+        "chunk_id": "sem620.pdf_16_2",
+        "chunk_no": 2,
+        "char_count": 766,
+        "text": "Supervised learning for classification: k-nearestneighbors,Decision Trees and Random Forests, Naïve Bayes, NeuralNets,Logistic Regression, Generalized Regression, SupportVectorMachines, Discriminant Analysis. Topics includeboostedneural and tree models.57Unit7:Supervised learning for prediction: review ofmultiplelinear regression and related topics like influenceandmulti-collinearity, PCR, Neural Nets,GeneralizedRegression including the LASSO (adaptive),LARS,Ridge, and Elastic Net (adaptive). Traditional variableSelection strategies such as Forward Selection and AllPossible Models will also be covered.68Unit8:Model assessment measures for predictive andclassification models: model scoring, prediction erroranalysis, ROC and Lift curves, profit matrices for6"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 17,
+        "chunk_id": "sem620.pdf_17_1",
+        "chunk_no": 1,
+        "char_count": 1000,
+        "text": "17\nMaulana Abul Kalam Azad University of Technology, West Bengal(Formerly West Bengal University of Technology)Syllabus for B. Tech in CSE (Artificial Intelligence and Machine Learning)(Applicable from the academic session 2020-2021)classification, various model comparison criteria.Ensemble Modeling: combining predictive models tocreate even more powerful models; includes boostingand bagging strategies.Text book and Reference books:1. Data Mining for Business Intelligence: Concepts, Techniques and Applications with JMP Pro;Shmueli, Bruce, Stephens, Patel 2017,Wiley & Sons2. Preparing Data for Analysis with JMP by Robert Carver3. Introduction to Statistical Learing, sixth printing, by Gareth, Tibshirani, Hastie, and WhittenDatabase Management SystemsCode: OECAIML-601AContact: 3LName of the Course:Database Management SystemsCourse Code:OECAIML-601ASemester: VIDuration:6monthsMaximumMarks:100Teaching Scheme Examination SchemeTheory:3 hrs./week Mid Semester exam: 15Tutorial:NILAssignmentan"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 17,
+        "chunk_id": "sem620.pdf_17_2",
+        "chunk_no": 2,
+        "char_count": 588,
+        "text": "Course:Database Management SystemsCourse Code:OECAIML-601ASemester: VIDuration:6monthsMaximumMarks:100Teaching Scheme Examination SchemeTheory:3 hrs./week Mid Semester exam: 15Tutorial:NILAssignmentandQuiz:10marksAttendance:5marksPractical:hrs./weekEndSemesterExam:70MarksCreditPoints:3Unit ContentHrs/Unit Marks/Unit1Database system architecture:DataAbstraction, Data Independence,DataDefinition Language(DDL),DataManipulationLanguage(DML).Data models:Entity-relationshipmodel,network model, relational and object orienteddata models, integrity constraints, datamanipulation operations.9"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 18,
+        "chunk_id": "sem620.pdf_18_1",
+        "chunk_no": 1,
+        "char_count": 1000,
+        "text": "18\nMaulana Abul Kalam Azad University of Technology, West Bengal(Formerly West Bengal University of Technology)Syllabus for B. Tech in CSE (Artificial Intelligence and Machine Learning)(Applicable from the academic session 2020-2021)2Relational query languages:Relational algebra,Tuple and domain relational calculus, SQL3,DDL and DML constructs, Open source andCommercial DBMS - MYSQL, ORACLE, DB2,SQLserver.Relational database design:Domainand data dependency,Armstrong’s axioms, Normal forms,Dependency preservation, Losslessdesign.Query processing and optimization:Evaluation of relational algebraexpressions,Query equivalence, Joinstrategies, Query optimizationalgorithms.133Storage strategies: Indices, B-trees, hashing. 34.Transaction processing:Concurrencycontrol,ACID property, Serializability of scheduling,Locking and timestamp based schedulers, Multi-version and optimistic Concurrency Controlschemes, Database recovery.55Database Security:Authentication,Authorization and access control,"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 18,
+        "chunk_id": "sem620.pdf_18_2",
+        "chunk_no": 2,
+        "char_count": 965,
+        "text": "ty of scheduling,Locking and timestamp based schedulers, Multi-version and optimistic Concurrency Controlschemes, Database recovery.55Database Security:Authentication,Authorization and access control, DAC,MAC andRBAC models, Intrusion detection, SQLinjection.36Advanced topics:Object oriented and objectrelational databases, Logical databases, Webdatabases, Distributed databases, Datawarehousing and data mining.3Text book and Reference books:1.“Database System Concepts” , 6th Edition by Abraham Silberschatz, HenryF. Korth, S. Sudarshan,McGraw-Hill.2.“Principles of Database and Knowledge – Base Systems”, Vol 1 by J. D.Ullman, Computer Science Press.3.Database Management Systems, R.P. Mahapatra, Khanna Publishing House,New Delhi (AICTE Recommended Textbook – 2018)4.“Fundamentals of Database Systems” , 5th Edition by R. Elmasri and S.Navathe,5. PearsonEducation “Foundations of Databases”, Reprint by SergeAbiteboul, Richard Hull, Victor Vianu,Addison-Wesley"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 18,
+        "chunk_id": "sem620.pdf_18_3",
+        "chunk_no": 3,
+        "char_count": 165,
+        "text": "stems” , 5th Edition by R. Elmasri and S.Navathe,5. PearsonEducation “Foundations of Databases”, Reprint by SergeAbiteboul, Richard Hull, Victor Vianu,Addison-Wesley"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 19,
+        "chunk_id": "sem620.pdf_19_1",
+        "chunk_no": 1,
+        "char_count": 1000,
+        "text": "19\nMaulana Abul Kalam Azad University of Technology, West Bengal(Formerly West Bengal University of Technology)Syllabus for B. Tech in CSE (Artificial Intelligence and Machine Learning)(Applicable from the academic session 2020-2021)Human Computer InteractionCode:OECAIML-601BContact: 3LNameoftheCourse:HumanComputerInteractionCourseCode:OECAIML-601BSemester:VIDuration:6monthsMaximumMarks:100Teaching Scheme Examination SchemeTheory:3hrs./weekMidSemesterexam:15Tutorial:NILAssignmentandQuiz:10marksAttendance:5marksPractical: NIL End Semester Exam :70 MarksCreditPoints:3Unit Content Hrs/UnitMarks/Unit1 Human: I/O channels – Memory – Reasoning and problem solving;The computer: Devices – Memory – processing and networks;9Interaction: Models – frameworks – Ergonomics – styles – elements –interactivity- Paradigms.2Interactive Design basics – process – scenarios – navigation – screendesign –Iteration and prototyping. HCI in software process – software life cycle–usability engineering – Prototypi"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 19,
+        "chunk_id": "sem620.pdf_19_2",
+        "chunk_no": 2,
+        "char_count": 681,
+        "text": "vity- Paradigms.2Interactive Design basics – process – scenarios – navigation – screendesign –Iteration and prototyping. HCI in software process – software life cycle–usability engineering – Prototyping in practice – design rationale.Design rules– principles, standards, guidelines, rules. Evaluation Techniques –UniversalDesign.113.Cognitive models –Socio-Organizational issues and stake holderrequirements–Communication and collaboration models-Hypertext,Multimedia and WWW.84.Mobile Ecosystem: Platforms, Application frameworks- Types ofMobileApplications: Widgets, Applications, Games- Mobile InformationArchitecture,Mobile 2.0, Mobile Design: Elements of Mobile Design,Tools.8"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 20,
+        "chunk_id": "sem620.pdf_20_1",
+        "chunk_no": 1,
+        "char_count": 1000,
+        "text": "20\nMaulana Abul Kalam Azad University of Technology, West Bengal(Formerly West Bengal University of Technology)Syllabus for B. Tech in CSE (Artificial Intelligence and Machine Learning)(Applicable from the academic session 2020-2021)5.Designing Web Interfaces – Drag & Drop, Direct Selection, ContextualTools,Overlays, Inlays and Virtual Pages, Process Flow. CaseStudies.86.RecentTrends:SpeechRecognitionandTranslation,Multimodal System3Text book and Reference books:1. Theodor Richardson, Charles N Thies, Secure Software Design, Jones & Bartlett2. Kenneth R. van Wyk, Mark G. Graff, Dan S. Peters, Diana L. Burley, Enterprise SoftwareSecurity,Addison Wesley.Subject:Neural NetworksCourse Code:OECAIML-601CSemester: VIDuration:36MaximumMarks:100TeachingSchemeExaminationSchemeTheory:3Hrs./weekEnd Semester Exam: 70Tutorial:0Attendance : 5Practical:Continuous Assessment:25Credit:3Aim:Sl.No.1.Develop algorithms simulating human brain.2.Implement Neural Networks in Tensor Flow for solving problems.3"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 20,
+        "chunk_id": "sem620.pdf_20_2",
+        "chunk_no": 2,
+        "char_count": 896,
+        "text": "mester Exam: 70Tutorial:0Attendance : 5Practical:Continuous Assessment:25Credit:3Aim:Sl.No.1.Develop algorithms simulating human brain.2.Implement Neural Networks in Tensor Flow for solving problems.3.Explore the essentials of Deep Learning and Deep Network architectures.4.Define, train and use a Deep Neural Network for solving real world problems thatrequireartificialIntelligencebasedsolutions.Objective:Sl.No.1.To acquire knowledge on the basics of neural networks.2.To implement neural networks using computational tools for variety of problems.3.To explore various deep learning algorithms.Pre-Requisite:Sl.No.1. Calculus, Linear Algebra2. Probability & Statistics3. Ability to code in R/PythonContentsHrs./weekChapterNameoftheTopicHoursMarks01IntroductionVarious paradigms of earning problems, Perspectives andIssues in deep learning framework, review of fundamentallearningtechniques.3 5"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 20,
+        "chunk_id": "sem620.pdf_20_3",
+        "chunk_no": 3,
+        "char_count": 96,
+        "text": ", Perspectives andIssues in deep learning framework, review of fundamentallearningtechniques.3 5"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 21,
+        "chunk_id": "sem620.pdf_21_1",
+        "chunk_no": 1,
+        "char_count": 1000,
+        "text": "21\nMaulana Abul Kalam Azad University of Technology, West Bengal(Formerly West Bengal University of Technology)Syllabus for B. Tech in CSE (Artificial Intelligence and Machine Learning)(Applicable from the academic session 2020-2021)02Feed forward neural networkArtificial Neural Network, activation function, multi-layerneural network,cardinality, operations, and properties of fuzzyrelations.6 1003Training Neural NetworkRisk minimization, loss function, backpropagation,regularization, model selection, and optimization.6 1504Conditional Random FieldsLinear chain, partition function, Markov network, Belief propagation,Training CRFs, Hidden Markov Model, Entropy.9 1505Deep LearningDeep Feed Forward network, regularizations, training deep models,dropouts, Convolutional Neural Network, RecurrentNeural Network,DeepBeliefNetwork.6 1506Deep Learning researchObject recognition, sparse coding, computer vision, naturallanguage6 10SubTotal:3670Internal Assessment Examination & Preparation of Semest"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 21,
+        "chunk_id": "sem620.pdf_21_2",
+        "chunk_no": 2,
+        "char_count": 723,
+        "text": "Neural Network,DeepBeliefNetwork.6 1506Deep Learning researchObject recognition, sparse coding, computer vision, naturallanguage6 10SubTotal:3670Internal Assessment Examination & Preparation of SemesterExamination4 30Total:40100List of BooksText Books:NameofAuthorTitleoftheBookEdition/ISSN/ISBNNameofthePublisherRajiv ChopraDeep Learning(AICTE RecommendedTextbook)First Edition Khanna BookPublishingGoodfellow,I.,Bengio,Y.,andCourvilleA.,Deep Learning MIT PressSatish Kumar Neural Networks: AClassroom ApproachTata McGraw-HillReferenceBooks:Bishop, C. ,M.Pattern RecognitionandMachineLearningSpringerYegnanarayana, B.Artificial NeuralNetworksPHI Learning Pvt. LtdGolub, G.,H., andVanLoan,C.,F.Matrix Computations JHU Press"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 22,
+        "chunk_id": "sem620.pdf_22_1",
+        "chunk_no": 1,
+        "char_count": 1000,
+        "text": "22\nMaulana Abul Kalam Azad University of Technology, West Bengal(Formerly West Bengal University of Technology)Syllabus for B. Tech in CSE (Artificial Intelligence and Machine Learning)(Applicable from the academic session 2020-2021)Name of the Course:Cryptography & Network SecurityCourse Code:OEC-AIML 601DSemester: VIDuration:6monthsMaximumMarks:100Teaching Scheme Examination SchemeTheory: 3 hrs./week Mid Semester exam: 15Tutorial:NILAssignmentandQuiz:10marksAttendance:5marksPractical:NILEndSemesterExam:70MarksCreditPoints:3Computer Security Concepts, The OSI Security Architecture, Security Attacks, SecurityServices, Security Mechanisms , A Model for Network Security, Classical EncryptionTechniques, Symmetric Cipher Model, Substitution Techniques, Transposition Techniques,Rotor Machines, Steganography, Cryptographic Tools, Confidentiality with SymmetricEncryption, Message Authentication and Hash Functions, Public-Key Encryption, DigitalSignatures and Key Management, Random and Pseudor"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 22,
+        "chunk_id": "sem620.pdf_22_2",
+        "chunk_no": 2,
+        "char_count": 1000,
+        "text": "Steganography, Cryptographic Tools, Confidentiality with SymmetricEncryption, Message Authentication and Hash Functions, Public-Key Encryption, DigitalSignatures and Key Management, Random and Pseudorandom Numbers, Practical Application:Encryption of Stored Data, User Authentication, Means of Authentication, Password-BasedAuthentication, Token-Based Authentication, Biometric Authentication, Remote UserAuthentication, Security Issues for User Authentication, Malicious Software, Types of MaliciousSoftware (Malware), Propagation—Infected Content—Viruses, Propagation—VulnerabilityExploit—Worms, Propagation—Social Engineering—SPAM Email, Trojans, Payload—SystemCorruption, Payload—Attack Agent—Zombie, Bots, Payload—Information Theft—Key loggers,Phishing, Spyware, Payload—Stealthing— Backdoors, Rootkits, Countermeasures, Firewallsand Intrusion Prevention Systems, the Need for Firewalls, Firewall Characteristic, Types ofFirewalls, Firewall Basing, Firewall Location and Configurations, Intrusio"
+    },
+    {
+        "source_file": "sem620.pdf",
+        "file_type": "pdf",
+        "page_number": 22,
+        "chunk_id": "sem620.pdf_22_3",
+        "chunk_no": 3,
+        "char_count": 532,
+        "text": "ootkits, Countermeasures, Firewallsand Intrusion Prevention Systems, the Need for Firewalls, Firewall Characteristic, Types ofFirewalls, Firewall Basing, Firewall Location and Configurations, Intrusion Prevention Systems.Text Books:1. Cryptography and Network Security: Principles and Practice by William Stalings 6thEdition published by PHI (2011)2. Computer security principles and practice, William Stallings, Lawrie Brown, thirdedition, Prentice-Hall, 20113. Cryptography and Network Security, V.K. Jain, Khanna Publishing House"
+    }
+]
