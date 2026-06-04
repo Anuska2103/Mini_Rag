@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-**Mini RAG** is a Retrieval-Augmented Generation (RAG) application built with Streamlit that enables users to upload text documents and intelligently search through them using both keyword-based and semantic search capabilities. The application provides a user-friendly interface for document analysis, including text statistics, paragraph extraction, and AI-powered question answering with confidence scoring.
+**Mini RAG** is a Retrieval-Augmented Generation (RAG) application built with Streamlit that enables users to upload text and PDF documents and intelligently search through them using both keyword-based and semantic search capabilities. The application provides a user-friendly interface for document analysis, including text statistics, paragraph extraction, chunking, and confidence-scored question answering.
 
 ---
 
@@ -99,8 +99,8 @@ The app will start on `http://localhost:8501` (or another available port).
 ### Using the Application
 
 1. **Upload a Document**
-   - Click "Upload TXT File" and select a `.txt` file
-   - The app will display a preview of the cleaned text
+   - Click "Upload TXT or PDF File" and select a `.txt` or `.pdf` document
+   - The app will display a preview of cleaned text or extracted PDF text
 
 2. **View Document Statistics**
    - See word count, paragraph count, sentence count, and character count
@@ -271,6 +271,47 @@ Mini_Rag/
 
 ---
 
+## Week 2 Scope
+
+### New Features Implemented
+
+1. **PDF Upload & Text Extraction**
+   - Upload `.txt` or `.pdf` files through the UI.
+   - Extract page-by-page text from PDFs using `pypdf`.
+   - Scanned or image-only PDFs are not supported because OCR is not implemented.
+
+2. **Chunking Pipeline**
+   - Load document records from text or PDF files.
+   - Clean the extracted text records.
+   - Split text into overlapping chunks using a fixed chunk size.
+   - Annotate each chunk with schema metadata.
+   - Export or return a list of chunk records.
+
+3. **Chunking Steps**
+   - Step 1: Load the document using file extension dispatch.
+   - Step 2: Clean the raw text into normalized paragraphs.
+   - Step 3: Chunk the cleaned text into 1000-character segments.
+   - Step 4: Apply 200-character overlap between chunks.
+   - Step 5: Build metadata and return the chunk list.
+
+4. **Chunk Schemas and Metadata**
+   - Chunks follow the shared schema in `src/schemas.py`.
+   - Each record includes:
+     - `source_file`
+     - `file_type`
+     - `page_number`
+     - `chunk_id`
+     - `chunk_no`
+     - `char_count`
+     - `text`
+   - This metadata enables preview, chunk export, and later search or analysis.
+
+5. **Flexible File Handling**
+   - The pipeline now accepts both `.txt` and `.pdf` documents.
+   - A generic loader dispatches extraction logic based on the file extension.
+
+---
+
 ### Main Application: `app.py`
 
 **Application Flow**:
@@ -283,7 +324,7 @@ Mini_Rag/
    └─ Stop if no file
    ↓
 3. Read & Clean
-   ├─ read_text_file() → get raw text
+   ├─ load_document_text() → extract raw text from `.txt` or `.pdf`
    ├─ basic_clean_text() → normalize text
    └─ Display preview (first 2000 characters)
    ↓
@@ -308,6 +349,12 @@ Mini_Rag/
    │  ├─ semantic_search() → find best match
    │  └─ highlight_text() → highlight keywords
    └─ Display answer with confidence score
+   ↓
+7. Chunking Preview
+   ├─ Configure chunk size and overlap
+   ├─ build_chunks_from_file() → create overlapping chunk records
+   ├─ export_chunks_json() → save `outputs/chunks_preview.json`
+   └─ Preview the first chunks and download JSON
 ```
 
 ---
@@ -337,13 +384,17 @@ Streamlit maintains these session variables to preserve state across interaction
 
 ### Current Limitations
 
-1. **Text-Only Input**
-   - Currently supports `.txt` files only
-   - No PDF, DOCX, or image document support
+1. **Document Support**
+   - Supports `.txt` and `.pdf` documents now
+   - Scanned PDFs and image-only PDFs are not supported because OCR is not implemented
 
 2. **Semantic Search Threshold**
    - Fixed 0.1 similarity threshold may miss relevant results
    - No user-configurable threshold
+
+3. **No Deep Learning or Embedding Models**
+   - Semantic search uses TF-IDF vectorization and cosine similarity only
+   - No large language model (LLM) or neural embeddings are used
 
 3. **No Persistent Storage**
    - Search results are not saved between sessions
