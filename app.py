@@ -1,4 +1,7 @@
 from pathlib import Path
+import json
+import logging
+import re
 
 import streamlit as st
 
@@ -6,6 +9,8 @@ from src.chunking import build_chunks_from_file, export_chunks_json
 from src.document_loader import load_document_text
 from src.text_cleaning import clean_document_records
 from src.txt_processing import basic_clean_text, keyword_search, count_text_stats, split_into_paragraphs, highlight_text, semantic_search
+from src.indexer import index_chunks_from_json
+from src.vector_store import get_chroma
 st.title("Mini rag char with Document")
 
 st.write("""Upload a .txt document and search for keywords or sentences inside the file.
@@ -27,6 +32,43 @@ upload_dir = Path("outputs") / "uploads"
 upload_dir.mkdir(parents=True, exist_ok=True)
 upload_path = upload_dir / upload_file.name
 upload_path.write_bytes(uploaded_bytes)
+
+# set up logging
+logger = logging.getLogger("mini_rag")
+if not logger.handlers:
+    handler = logging.StreamHandler()
+    handler.setFormatter(logging.Formatter("%(asctime)s %(levelname)s: %(message)s"))
+    logger.addHandler(handler)
+logger.setLevel(logging.INFO)
+
+# in-memory UI log buffer
+if "ui_logs" not in st.session_state:
+    st.session_state.ui_logs = []
+
+def log(msg: str, level: str = "info"):
+    """Log to terminal and append to Streamlit UI log buffer."""
+    if level == "info":
+        logger.info(msg)
+    elif level == "error":
+        logger.error(msg)
+    elif level == "warning":
+        logger.warning(msg)
+    else:
+        logger.debug(msg)
+
+    st.session_state.ui_logs.append(f"{msg}")
+
+def render_logs():
+    logs_text = "\n".join(st.session_state.ui_logs[-200:])
+    st.text_area("Process logs", value=logs_text, height=200)
+
+
+def make_collection_name(filename: str) -> str:
+    """Create a safe collection name from a filename."""
+    name = Path(filename).stem
+    # replace non-alphanumeric runs with underscore, trim, and lowercase
+    name = re.sub(r"[^0-9a-zA-Z]+", "_", name).strip("_").lower()
+    return name or "default"
 
 #read file
 records = load_document_text(upload_path)
@@ -201,11 +243,21 @@ current_config = {
 }
 
 if st.session_state.chunk_config != current_config:
-    chunks = build_chunks_from_file(str(upload_path), chunk_size, overlap)
-    export_chunks_json(chunks, "outputs/chunks_preview.json")
-    st.session_state.chunks = chunks
-    st.session_state.chunk_source = upload_file.name
-    st.session_state.chunk_config = current_config
+    try:
+        log("Starting chunking step: building chunks from file")
+        chunks = build_chunks_from_file(str(upload_path), chunk_size, overlap)
+        log(f"Chunking complete: {len(chunks)} chunks created")
+
+        log("Exporting chunks to outputs/chunks_preview.json")
+        export_chunks_json(chunks, "outputs/chunks_preview.json")
+        log("Chunks exported to outputs/chunks_preview.json")
+
+        st.session_state.chunks = chunks
+        st.session_state.chunk_source = upload_file.name
+        st.session_state.chunk_config = current_config
+    except Exception as e:
+        log(f"Chunking failed: {e}", level="error")
+        st.error(f"Chunking failed: {e}")
 
 if st.session_state.chunks:
     info_col1, info_col2, info_col3, info_col4, info_col5 = st.columns(5)
@@ -222,7 +274,14 @@ if st.session_state.chunks:
 
     st.caption("First 5 chunks")
     for idx, chunk in enumerate(st.session_state.chunks[:5], start=1):
-        with st.expander(f"Chunk {idx} ({chunk.get('char_count', 0)} chars)"):
+        # prefer metadata char_length, fall back to legacy char_count
+        char_len = None
+        if isinstance(chunk.get("metadata"), dict):
+            char_len = chunk["metadata"].get("char_length")
+        if char_len is None:
+            char_len = chunk.get("char_count", 0)
+
+        with st.expander(f"Chunk {idx} ({char_len} chars)"):
             st.write(chunk.get("text", ""))
 
     preview_path = Path("outputs") / "chunks_preview.json"
@@ -233,3 +292,83 @@ if st.session_state.chunks:
             file_name="chunks_preview.json",
             mime="application/json",
         )
+
+# --- Vector index controls ---
+st.markdown("---")
+st.subheader("Vector Index")
+
+col_a, col_b = st.columns([3, 1])
+with col_a:
+    if st.button("Build / Rebuild Vector Index"):
+        # perform indexing from outputs/chunks_preview.json
+        preview_path = Path("outputs") / "chunks_preview.json"
+        if not preview_path.exists():
+            st.error("No chunks_preview.json found. Please generate chunks first.")
+        else:
+            try:
+                collection_name = make_collection_name(upload_file.name)
+                log(f"Starting indexing: loading chunks JSON and building embeddings/index into '{collection_name}'")
+                index_chunks_from_json(
+                    str(preview_path),
+                    collection_name=collection_name,
+                    persist_directory="vector_store/chroma",
+                    reset=True,
+                )
+                # count chunks from JSON
+                with open(preview_path, "r", encoding="utf-8") as fh:
+                    chunk_list = json.load(fh)
+                total = len([c for c in chunk_list if c.get("text")])
+                log(f"Indexing complete: {total} chunks indexed into collection '{collection_name}'")
+                st.success(f"Indexing complete: {total} chunks indexed")
+                st.session_state.last_indexed_count = total
+            except Exception as e:
+                log(f"Indexing failed: {e}", level="error")
+                st.error(f"Indexing failed: {e}")
+
+with col_b:
+    indexed_count = st.session_state.get("last_indexed_count", None)
+    st.metric("Indexed Chunks", indexed_count if indexed_count is not None else "-")
+
+# Test query and retrieval
+test_query = st.text_input("Test query for retrieval", value="")
+if st.button("Search Relevant Chunks"):
+    if not test_query.strip():
+        st.error("Please enter a test query.")
+    else:
+        try:
+            collection_name = make_collection_name(upload_file.name)
+            log(f"Starting retrieval: querying Chroma collection '{collection_name}' for relevant chunks")
+            chroma = get_chroma(collection_name, persist_directory="vector_store/chroma")
+
+            try:
+                docs_scores = chroma.similarity_search_with_score(test_query, k=3)
+            except Exception:
+                docs = chroma.similarity_search(test_query, k=3)
+                docs_scores = [(d, None) for d in docs]
+
+            for rank, (doc, score) in enumerate(docs_scores, start=1):
+                try:
+                    content = doc.page_content
+                    metadata = doc.metadata or {}
+                except Exception:
+                    content = getattr(doc, "content", str(doc))
+                    metadata = getattr(doc, "metadata", {}) or {}
+
+                source = metadata.get("source_file") or metadata.get("file") or "unknown"
+                page = metadata.get("page_number") or metadata.get("page") or "-"
+                chunk_idx = metadata.get("chunk_id") or metadata.get("chunk_no") or metadata.get("chunk") or "-"
+
+                st.write(f"**Rank {rank} — score: {score}**")
+                st.write(f"Source: {source} — Page: {page} — Chunk: {chunk_idx}")
+                st.write(content)
+                st.divider()
+
+            log("Retrieval completed")
+        except Exception as e:
+            log(f"Retrieval failed: {e}", level="error")
+            st.error(f"Retrieval failed: {e}")
+
+# Render UI logs at bottom
+st.markdown("---")
+st.subheader("Process Logs")
+render_logs()
