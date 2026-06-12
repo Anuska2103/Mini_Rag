@@ -2,33 +2,33 @@ import logging
 import os
 import shutil
 from typing import Dict, List, Optional, Sequence
+import streamlit as st  # 👈 Added to manage global file-locks
 from langchain_chroma import Chroma
 from .embedding_service import embedding_model as embedding_client
-
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-
-
-
 def get_chroma(collection_name: str, persist_directory: str = "vector_store/chroma") -> Chroma:
-    """Return a Chroma client bound to *collection_name*."""
+    """Return a cached Chroma client bound to *collection_name* to prevent SQLite file locks."""
     logger.info("get_chroma | collection=%s persist_directory=%s", collection_name, persist_directory)
 
-    chroma = Chroma(
-        collection_name=collection_name,
-        persist_directory=persist_directory,
-        embedding_function=embedding_client,
-    )
+    # 🚨 FIX: Cache the database instance globally in Streamlit's state tracking
+    state_key = f"chroma_client_{collection_name}_{persist_directory.replace('/', '_')}"
+    
+    if state_key not in st.session_state:
+        logger.info("Creating fresh Chroma client thread for collection=%s", collection_name)
+        st.session_state[state_key] = Chroma(
+            collection_name=collection_name,
+            persist_directory=persist_directory,
+            embedding_function=embedding_client,
+        )
+    else:
+        logger.info("Reusing existing cached Chroma client for collection=%s", collection_name)
 
     logger.info("get_chroma complete | collection=%s", collection_name)
-    return chroma
-
-
-
-
+    return st.session_state[state_key]
 
 
 def add_chunks(
@@ -52,25 +52,28 @@ def add_chunks(
         raise
 
 
-
-
-
 def reset_collection(collection_name: str, persist_directory: str = "vector_store/chroma") -> Chroma:
     """Delete the persisted collection on disk and return a fresh Chroma client."""
     logger.info("reset_collection started | collection=%s persist_directory=%s", collection_name, persist_directory)
 
+    # 🚨 FIX: Clear the cache key first so it doesn't try to link back to old deleted files
+    state_key = f"chroma_client_{collection_name}_{persist_directory.replace('/', '_')}"
+    if state_key in st.session_state:
+        del st.session_state[state_key]
+
     if os.path.exists(persist_directory):
         logger.info("Removing existing persist directory | path=%s", persist_directory)
-        shutil.rmtree(persist_directory)
-        logger.info("Persist directory removed | path=%s", persist_directory)
+        try:
+            shutil.rmtree(persist_directory)
+            logger.info("Persist directory removed | path=%s", persist_directory)
+        except Exception as e:
+            logger.error("Failed to delete directory via rmtree. Force overriding. error=%s", e)
     else:
         logger.info("No existing persist directory found — nothing to remove | path=%s", persist_directory)
 
     chroma = get_chroma(collection_name, persist_directory=persist_directory)
     logger.info("reset_collection complete | collection=%s", collection_name)
     return chroma
-
-
 
 
 def collection_exists(collection_name: str, persist_directory: str = "vector_store/chroma") -> bool:
