@@ -17,3 +17,4 @@ scikit-learn
 requests
 python-multipart
 pillow
+google-genai

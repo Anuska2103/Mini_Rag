@@ -2,7 +2,8 @@ from pathlib import Path
 import json
 import logging
 import re
-
+from dotenv import load_dotenv
+from src.rag_pipeline import RAGPipeline
 import streamlit as st
 
 from src.chunking import build_chunks_from_file, export_chunks_json
@@ -11,6 +12,10 @@ from src.text_cleaning import clean_document_records
 from src.txt_processing import basic_clean_text, keyword_search, count_text_stats, split_into_paragraphs, highlight_text, semantic_search
 from src.indexer import index_chunks_from_json
 from src.vector_store import get_chroma
+
+load_dotenv()
+
+
 st.title("Mini rag char with Document")
 
 st.write("""Upload a .txt document and search for keywords or sentences inside the file.
@@ -329,45 +334,70 @@ with col_b:
     indexed_count = st.session_state.get("last_indexed_count", None)
     st.metric("Indexed Chunks", indexed_count if indexed_count is not None else "-")
 
-# Test query and retrieval
-test_query = st.text_input("Test query for retrieval", value="")
-if st.button("Search Relevant Chunks"):
-    if not test_query.strip():
-        st.error("Please enter a test query.")
+# ------------------------------
+# Week 4 : RAG Question Answering
+# ------------------------------
+
+st.markdown("---")
+st.subheader("Ask Questions using RAG")
+
+rag_question = st.text_input(
+    "Ask anything about the uploaded document",
+    key="rag_question"
+)
+
+if st.button("Generate Answer"):
+
+    if not rag_question.strip():
+        st.error("Please enter a question.")
+
     else:
+
         try:
             collection_name = make_collection_name(upload_file.name)
-            log(f"Starting retrieval: querying Chroma collection '{collection_name}' for relevant chunks")
-            chroma = get_chroma(collection_name, persist_directory="vector_store/chroma")
 
-            try:
-                docs_scores = chroma.similarity_search_with_score(test_query, k=3)
-            except Exception:
-                docs = chroma.similarity_search(test_query, k=3)
-                docs_scores = [(d, None) for d in docs]
+            log(f"Generating answer from collection '{collection_name}'")
 
-            for rank, (doc, score) in enumerate(docs_scores, start=1):
-                try:
-                    content = doc.page_content
-                    metadata = doc.metadata or {}
-                except Exception:
-                    content = getattr(doc, "content", str(doc))
-                    metadata = getattr(doc, "metadata", {}) or {}
+            pipeline = RAGPipeline(
+                collection_name=collection_name,
+                persist_directory="vector_store/chroma"
+            )
 
-                source = metadata.get("source_file") or metadata.get("file") or "unknown"
-                page = metadata.get("page_number") or metadata.get("page") or "-"
-                chunk_idx = metadata.get("chunk_id") or metadata.get("chunk_no") or metadata.get("chunk") or "-"
+            result = pipeline.answer_question(rag_question)
+            answer_text = result["answer"]
 
-                st.write(f"**Rank {rank} — score: {score}**")
-                st.write(f"Source: {source} — Page: {page} — Chunk: {chunk_idx}")
-                st.write(content)
-                st.divider()
+            st.subheader("Answer")
+            if answer_text.startswith("Error generating response:"):
+                st.error(answer_text)
+            else:
+                st.success(answer_text)
 
-            log("Retrieval completed")
+            st.subheader("Sources")
+
+            for source in result["sources"]:
+
+                st.markdown(f"""
+**File:** {source['file']}
+
+**Page:** {source['page']}
+
+**Chunk ID:** {source['chunk_id']}
+                """)
+
+                with st.expander("Preview"):
+
+                    st.write(source["preview"])
+
+            with st.expander("Retrieved Context"):
+
+                st.write(result["context"])
+
+            log("RAG answer generated successfully.")
+
         except Exception as e:
-            log(f"Retrieval failed: {e}", level="error")
-            st.error(f"Retrieval failed: {e}")
 
+            log(f"RAG pipeline failed: {e}", level="error")
+            st.error(f"RAG pipeline failed: {e}")
 # Render UI logs at bottom
 st.markdown("---")
 st.subheader("Process Logs")
