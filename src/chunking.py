@@ -6,6 +6,7 @@ import logging
 from langchain_core.documents import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
+from config import CHUNK_SIZE, OVERLAP
 from .document_loader import load_document_text
 from .text_cleaning import clean_document_records
 
@@ -14,8 +15,8 @@ logger = logging.getLogger(__name__)
 
 def chunk_records(
     records: list[dict],
-    chunk_size: int = 1000,
-    overlap: int = 200,
+    chunk_size: int = CHUNK_SIZE,
+    overlap: int = OVERLAP,
 ) -> list[dict]:
 
     logger.info(
@@ -98,8 +99,8 @@ def chunk_records(
 
 def build_chunks_from_file(
     file_path: str,
-    chunk_size: int = 1000,
-    overlap: int = 200,
+    chunk_size: int = CHUNK_SIZE,
+    overlap: int = OVERLAP,
 ) -> list[dict]:
 
     logger.info(

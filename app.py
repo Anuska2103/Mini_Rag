@@ -3,6 +3,7 @@ import json
 import logging
 import re
 from dotenv import load_dotenv
+from config import CHUNK_SIZE, OVERLAP, VECTOR_PATH
 from src.rag_pipeline import RAGPipeline
 import streamlit as st
 
@@ -229,8 +230,8 @@ if st.button("Ask Question"):
 st.markdown("---")
 st.subheader("Chunking preview")
 
-chunk_size = st.number_input("Chunk size (characters)", min_value=200, max_value=1200, value=1000, step=100)
-overlap = st.number_input("Overlap (characters)", min_value=100, max_value=200, value=200, step=10)
+chunk_size = st.number_input("Chunk size (characters)", min_value=200, max_value=1200, value=CHUNK_SIZE, step=100)
+overlap = st.number_input("Overlap (characters)", min_value=100, max_value=200, value=OVERLAP, step=10)
 
 if "chunks" not in st.session_state:
     st.session_state.chunks = []
@@ -316,7 +317,7 @@ with col_a:
                 index_chunks_from_json(
                     str(preview_path),
                     collection_name=collection_name,
-                    persist_directory="vector_store/chroma",
+                    persist_directory=VECTOR_PATH,
                     reset=True,
                 )
                 # count chunks from JSON
@@ -360,7 +361,7 @@ if st.button("Generate Answer"):
 
             pipeline = RAGPipeline(
                 collection_name=collection_name,
-                persist_directory="vector_store/chroma"
+                persist_directory=VECTOR_PATH
             )
 
             result = pipeline.answer_question(rag_question)

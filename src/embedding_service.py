@@ -3,14 +3,10 @@ from typing import List, Sequence
 
 from langchain_huggingface import HuggingFaceEmbeddings
 
+from config import MODEL_NAME
+
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
-
-# ---------------------------------------------------------------------------
-# Model configuration
-# ---------------------------------------------------------------------------
-
-MODEL_NAME = "all-mpnet-base-v2"
 
 logger.info("Loading embedding model | model=%s normalize_embeddings=True", MODEL_NAME)
 

@@ -4,13 +4,15 @@ import shutil
 from typing import Dict, List, Optional, Sequence
 import streamlit as st  # 👈 Added to manage global file-locks
 from langchain_chroma import Chroma
+
+from config import VECTOR_PATH
 from .embedding_service import embedding_model as embedding_client
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-def get_chroma(collection_name: str, persist_directory: str = "vector_store/chroma") -> Chroma:
+def get_chroma(collection_name: str, persist_directory: str = VECTOR_PATH) -> Chroma:
     """Return a cached Chroma client bound to *collection_name* to prevent SQLite file locks."""
     logger.info("get_chroma | collection=%s persist_directory=%s", collection_name, persist_directory)
 
@@ -52,7 +54,7 @@ def add_chunks(
         raise
 
 
-def reset_collection(collection_name: str, persist_directory: str = "vector_store/chroma") -> Chroma:
+def reset_collection(collection_name: str, persist_directory: str = VECTOR_PATH) -> Chroma:
     """Delete the persisted collection on disk and return a fresh Chroma client."""
     logger.info("reset_collection started | collection=%s persist_directory=%s", collection_name, persist_directory)
 
@@ -76,7 +78,7 @@ def reset_collection(collection_name: str, persist_directory: str = "vector_stor
     return chroma
 
 
-def collection_exists(collection_name: str, persist_directory: str = "vector_store/chroma") -> bool:
+def collection_exists(collection_name: str, persist_directory: str = VECTOR_PATH) -> bool:
     """Return True if *collection_name* can be opened without error."""
     logger.info("collection_exists check | collection=%s persist_directory=%s", collection_name, persist_directory)
 

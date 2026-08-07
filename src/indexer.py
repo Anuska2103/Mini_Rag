@@ -2,6 +2,7 @@ import json
 import logging
 from typing import Dict, List
 
+from config import COLLECTION_NAME, VECTOR_PATH
 from .vector_store import get_chroma, add_chunks, reset_collection
 
 logging.basicConfig(level=logging.INFO)
@@ -10,8 +11,8 @@ logger = logging.getLogger(__name__)
 
 def index_chunks_from_json(
     json_path: str,
-    collection_name: str = "default",
-    persist_directory: str = "vector_store/chroma",
+    collection_name: str = COLLECTION_NAME,
+    persist_directory: str = VECTOR_PATH,
     reset: bool = False,
 ) -> None:
     """Read a chunks JSON file produced by chunking.export_chunks_json and
@@ -45,6 +46,8 @@ def index_chunks_from_json(
     texts: List[str] = []
     ids: List[str] = []
     metadatas: List[Dict] = []
+    seen_ids: set[str] = set()
+    duplicate_ids: List[str] = []
 
     for item_idx, item in enumerate(chunks):
         text = item.get("text")
@@ -53,6 +56,12 @@ def index_chunks_from_json(
             continue
 
         chunk_id = item.get("chunk_id") or f"chunk-{item_idx}"
+        if chunk_id in seen_ids:
+            duplicate_ids.append(chunk_id)
+            logger.warning("Skipping duplicate chunk_id in input | chunk_id=%s item_index=%d", chunk_id, item_idx)
+            continue
+
+        seen_ids.add(chunk_id)
         item_meta: dict = item.get("metadata") or {}
 
         # Build a flat metadata dict — all fields from ChromaVectorItem.
@@ -78,6 +87,9 @@ def index_chunks_from_json(
             item_idx, chunk_id, meta["source_file"], meta["page_number"], meta["chunk_index"],
         )
 
+    if duplicate_ids:
+        logger.warning("Duplicate chunk ids skipped | duplicates=%d ids=%s", len(duplicate_ids), sorted(set(duplicate_ids)))
+
     logger.info("Step 2/4 complete | valid_chunks=%d (skipped=%d)", len(texts), len(chunks) - len(texts))
 
     if not texts:
@@ -98,6 +110,13 @@ def index_chunks_from_json(
     except Exception as exc:
         logger.error("Failed to prepare Chroma collection | collection=%s error=%s", collection_name, exc)
         return
+
+    if ids and not reset:
+        try:
+            logger.info("Removing existing chunk ids before re-indexing | collection=%s ids=%d", collection_name, len(ids))
+            chroma.delete(ids=ids)
+        except Exception as exc:
+            logger.warning("Failed to delete existing ids before indexing | collection=%s error=%s", collection_name, exc)
 
     # ------------------------------------------------------------------
     # Step 4 — embed and upsert

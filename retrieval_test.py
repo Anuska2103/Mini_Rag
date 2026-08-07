@@ -13,6 +13,8 @@ import sys
 from datetime import datetime
 from typing import List, Optional
 
+from config import COLLECTION_NAME, TOP_K, VECTOR_PATH
+
 # ---------------------------------------------------------------------------
 # Make sure `src` is importable when running from the project root
 # ---------------------------------------------------------------------------
@@ -35,10 +37,8 @@ logger = logging.getLogger("retrieval_test")
 # ---------------------------------------------------------------------------
 # Config — edit these freely
 # ---------------------------------------------------------------------------
-COLLECTION_NAME = "collection"
-PERSIST_DIR     = os.path.join(ROOT_DIR, "vector_store", "chroma")
+PERSIST_DIR     = os.path.join(ROOT_DIR, VECTOR_PATH)
 OUTPUT_MD       = os.path.join(ROOT_DIR, "retrieval_test_results.md")
-TOP_K           = 3
 
 QUERIES: List[str] = [
     "What is Technical skills?",

@@ -1,5 +1,6 @@
 import re
 
+from config import COLLECTION_NAME, TOP_K, VECTOR_PATH
 from src.vector_store import get_chroma
 from src.llm_service import LLMService
 from src.source_formatter import SourceFormatter
@@ -9,8 +10,8 @@ class RAGPipeline:
 
     def __init__(
         self,
-        collection_name="default",
-        persist_directory="vector_store/chroma",
+        collection_name=COLLECTION_NAME,
+        persist_directory=VECTOR_PATH,
     ):
 
         self.db = get_chroma(
@@ -72,7 +73,7 @@ class RAGPipeline:
         suffix = "s" if page_count != 1 else ""
         return f"This document has {page_count} page{suffix}."
 
-    def answer_question(self, question, k=5):
+    def answer_question(self, question, k=TOP_K):
 
         if self._is_page_count_question(question):
 

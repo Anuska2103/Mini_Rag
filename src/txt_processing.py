@@ -1,3 +1,5 @@
+from config import RELEVANCE_THRESHOLD
+
 import re
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -137,7 +139,7 @@ def semantic_search(text, query):
     for i, score in enumerate(similarities):
 
         # similarity threshold
-        if score > 0.1:
+        if score > RELEVANCE_THRESHOLD:
 
             results.append({
                 "paragraph": paragraphs[i],
